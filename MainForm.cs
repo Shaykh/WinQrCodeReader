@@ -4,16 +4,16 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using TouchlessLib;
 using ZXing;
 using System.Windows.Forms;
+using Microsoft.Expression.Encoder.Devices;
 
 namespace WinQrCodeReader
 {
     public partial class MainForm : Form
     {
         IBarcodeReader barcodeReader;
-        TouchlessMgr touchlessMgr;
+        //TouchlessMgr touchlessMgr;
 
         private const int PREVIEW_WIDTH = 400;
         private const int PREVIEW_HEIGHT = 300;
@@ -27,7 +27,7 @@ namespace WinQrCodeReader
         private void Initialization()
         {
             barcodeReader = new BarcodeReader();
-            touchlessMgr = new TouchlessMgr();
+            //touchlessMgr = new TouchlessMgr();
             
         }
 
@@ -83,39 +83,39 @@ namespace WinQrCodeReader
 
         private void StartCamera()
         {
-            if (touchlessMgr.Cameras.Count == 0)
-            {
-                MessageBox.Show("Aucune webcam n'a été détecté!");
-                btWebcam.Text = "Démarrer Webcam";
-                return;
-            }
+            //if (touchlessMgr.Cameras.Count == 0)
+            //{
+            //    MessageBox.Show("Aucune webcam n'a été détecté!");
+            //    btWebcam.Text = "Démarrer Webcam";
+            //    return;
+            //}
 
-            touchlessMgr.CurrentCamera = touchlessMgr.Cameras[0];
-            touchlessMgr.CurrentCamera.OnImageCaptured += new EventHandler<CameraEventArgs>(OnImageCaptured);
+            //touchlessMgr.CurrentCamera = touchlessMgr.Cameras[0];
+            //touchlessMgr.CurrentCamera.OnImageCaptured += new EventHandler<CameraEventArgs>(OnImageCaptured);
 
         }
 
-        private void OnImageCaptured(object sender, CameraEventArgs e)
-        {
-            Bitmap capturedImage = e.Image;
+        //private void OnImageCaptured(object sender, CameraEventArgs e)
+        //{
+        //    Bitmap capturedImage = e.Image;
 
-            this.Invoke((MethodInvoker)delegate
-            {
-                pbCode.Image = capturedImage;
+        //    this.Invoke((MethodInvoker)delegate
+        //    {
+        //        pbCode.Image = capturedImage;
 
-                ReadCode(capturedImage);
-            }
-            );
-        }
+        //        ReadCode(capturedImage);
+        //    }
+        //    );
+        //}
 
         private void StopCamera()
         {
             btWebcam.Text = "Démarrer Webcam";
 
-            if (touchlessMgr.CurrentCamera != null)
-            {
-                touchlessMgr.CurrentCamera.OnImageCaptured -= new EventHandler<CameraEventArgs>(OnImageCaptured);
-            }
+            //if (touchlessMgr.CurrentCamera != null)
+            //{
+            //    touchlessMgr.CurrentCamera.OnImageCaptured -= new EventHandler<CameraEventArgs>(OnImageCaptured);
+            //}
         }
 
         private void ReadCode(Bitmap bitmap)
