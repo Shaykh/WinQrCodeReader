@@ -15,6 +15,9 @@ namespace WinQrCodeReader
         IBarcodeReader barcodeReader;
         TouchlessMgr touchlessMgr;
 
+        private const int PREVIEW_WIDTH = 400;
+        private const int PREVIEW_HEIGHT = 300;
+
         public MainForm()
         {
             InitializeComponent();
@@ -36,11 +39,11 @@ namespace WinQrCodeReader
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    Bitmap bitmap = null;
+                    Bitmap loadedPicture = null;
 
                     try
                     {
-                        bitmap = new Bitmap(dialog.FileName);
+                        loadedPicture = new Bitmap(dialog.FileName);
                     }
                     catch (Exception ex)
                     {
@@ -48,14 +51,23 @@ namespace WinQrCodeReader
                         throw;
                     }
 
-                    pbCode.Image = bitmap;
+                    pbCode.Image = loadedPicture;
                 }
             }
         }
 
         private void btWebcam_Click(object sender, EventArgs e)
         {
-
+            if (btWebcam.Text.Equals("Démarrer Webcam"))
+            {
+                btWebcam.Text = "Arrêter Webcam";
+                StartCamera();
+            }
+            else
+            {
+                btWebcam.Text = "Démarrer Webcam";
+                StopCamera();
+            }
         }
 
         private void btLire_Click(object sender, EventArgs e)
@@ -66,28 +78,58 @@ namespace WinQrCodeReader
                 return;
             }
 
-            txtCodeType.Clear();
-            txtContent.Clear();
+            ReadCode((Bitmap)pbCode.Image);
+        }
 
-            string code = ReadCode((Bitmap)pbCode.Image);
-            if (!string.IsNullOrWhiteSpace(code))
+        private void StartCamera()
+        {
+            if (touchlessMgr.Cameras.Count == 0)
             {
-                txtContent.Text = code;
+                MessageBox.Show("Aucune webcam n'a été détecté!");
+                btWebcam.Text = "Démarrer Webcam";
+                return;
+            }
+
+            touchlessMgr.CurrentCamera = touchlessMgr.Cameras[0];
+            touchlessMgr.CurrentCamera.OnImageCaptured += new EventHandler<CameraEventArgs>(OnImageCaptured);
+
+        }
+
+        private void OnImageCaptured(object sender, CameraEventArgs e)
+        {
+            Bitmap capturedImage = e.Image;
+
+            this.Invoke((MethodInvoker)delegate
+            {
+                pbCode.Image = capturedImage;
+
+                ReadCode(capturedImage);
+            }
+            );
+        }
+
+        private void StopCamera()
+        {
+            btWebcam.Text = "Démarrer Webcam";
+
+            if (touchlessMgr.CurrentCamera != null)
+            {
+                touchlessMgr.CurrentCamera.OnImageCaptured -= new EventHandler<CameraEventArgs>(OnImageCaptured);
             }
         }
 
-        
-
-        private string ReadCode(Bitmap bitmap)
+        private void ReadCode(Bitmap bitmap)
         {
-            string results = string.Empty;
+
+            txtCodeType.Clear();
+            txtContent.Clear();
+            
             var result = barcodeReader.Decode(bitmap);
             if (result != null)
             {
                 txtCodeType.Text = result.BarcodeFormat.ToString();
-                results = result.Text;
+                txtContent.Text = result.Text;
             }
-            return results;
         }
     }
 }
