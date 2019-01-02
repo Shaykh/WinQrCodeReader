@@ -30,7 +30,6 @@
         {
             this.pbCode = new System.Windows.Forms.PictureBox();
             this.btImage = new System.Windows.Forms.Button();
-            this.btWebcam = new System.Windows.Forms.Button();
             this.btLire = new System.Windows.Forms.Button();
             this.txtContent = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,37 +40,30 @@
             // 
             // pbCode
             // 
-            this.pbCode.Location = new System.Drawing.Point(40, 80);
+            this.pbCode.Location = new System.Drawing.Point(53, 98);
+            this.pbCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbCode.Name = "pbCode";
-            this.pbCode.Size = new System.Drawing.Size(400, 300);
+            this.pbCode.Size = new System.Drawing.Size(533, 369);
             this.pbCode.TabIndex = 0;
             this.pbCode.TabStop = false;
             // 
             // btImage
             // 
-            this.btImage.Location = new System.Drawing.Point(40, 20);
+            this.btImage.Location = new System.Drawing.Point(53, 25);
+            this.btImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btImage.Name = "btImage";
-            this.btImage.Size = new System.Drawing.Size(120, 40);
+            this.btImage.Size = new System.Drawing.Size(160, 49);
             this.btImage.TabIndex = 1;
             this.btImage.Text = "Charger Image";
             this.btImage.UseVisualStyleBackColor = true;
             this.btImage.Click += new System.EventHandler(this.btImage_Click);
             // 
-            // btWebcam
-            // 
-            this.btWebcam.Location = new System.Drawing.Point(180, 20);
-            this.btWebcam.Name = "btWebcam";
-            this.btWebcam.Size = new System.Drawing.Size(120, 40);
-            this.btWebcam.TabIndex = 2;
-            this.btWebcam.Text = "Démarrer Webcam";
-            this.btWebcam.UseVisualStyleBackColor = true;
-            this.btWebcam.Click += new System.EventHandler(this.btWebcam_Click);
-            // 
             // btLire
             // 
-            this.btLire.Location = new System.Drawing.Point(320, 20);
+            this.btLire.Location = new System.Drawing.Point(427, 25);
+            this.btLire.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btLire.Name = "btLire";
-            this.btLire.Size = new System.Drawing.Size(120, 40);
+            this.btLire.Size = new System.Drawing.Size(160, 49);
             this.btLire.TabIndex = 3;
             this.btLire.Text = "Lire Code";
             this.btLire.UseVisualStyleBackColor = true;
@@ -79,49 +71,53 @@
             // 
             // txtContent
             // 
-            this.txtContent.Location = new System.Drawing.Point(160, 396);
+            this.txtContent.Location = new System.Drawing.Point(213, 487);
+            this.txtContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(280, 20);
+            this.txtContent.Size = new System.Drawing.Size(372, 22);
             this.txtContent.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 399);
+            this.label1.Location = new System.Drawing.Point(49, 491);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.Size = new System.Drawing.Size(116, 17);
             this.label1.TabIndex = 5;
             this.label1.Text = "Contenu du code";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 429);
+            this.label2.Location = new System.Drawing.Point(51, 528);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.Size = new System.Drawing.Size(95, 17);
             this.label2.TabIndex = 7;
             this.label2.Text = "Type de code";
             // 
             // txtCodeType
             // 
-            this.txtCodeType.Location = new System.Drawing.Point(161, 426);
+            this.txtCodeType.Location = new System.Drawing.Point(215, 524);
+            this.txtCodeType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCodeType.Name = "txtCodeType";
-            this.txtCodeType.Size = new System.Drawing.Size(280, 20);
+            this.txtCodeType.Size = new System.Drawing.Size(372, 22);
             this.txtCodeType.TabIndex = 6;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 461);
+            this.ClientSize = new System.Drawing.Size(645, 567);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCodeType);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtContent);
             this.Controls.Add(this.btLire);
-            this.Controls.Add(this.btWebcam);
             this.Controls.Add(this.btImage);
             this.Controls.Add(this.pbCode);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pbCode)).EndInit();
@@ -134,7 +130,6 @@
 
         private System.Windows.Forms.PictureBox pbCode;
         private System.Windows.Forms.Button btImage;
-        private System.Windows.Forms.Button btWebcam;
         private System.Windows.Forms.Button btLire;
         private System.Windows.Forms.TextBox txtContent;
         private System.Windows.Forms.Label label1;
