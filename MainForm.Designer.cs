@@ -32,7 +32,10 @@
             this.btImage = new System.Windows.Forms.Button();
             this.btWebcam = new System.Windows.Forms.Button();
             this.btLire = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtContent = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtCodeType = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbCode)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,19 +77,47 @@
             this.btLire.UseVisualStyleBackColor = true;
             this.btLire.Click += new System.EventHandler(this.btLire_Click);
             // 
-            // textBox1
+            // txtContent
             // 
-            this.textBox1.Location = new System.Drawing.Point(40, 400);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(400, 20);
-            this.textBox1.TabIndex = 4;
+            this.txtContent.Location = new System.Drawing.Point(160, 396);
+            this.txtContent.Name = "txtContent";
+            this.txtContent.Size = new System.Drawing.Size(280, 20);
+            this.txtContent.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(37, 399);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Contenu du code";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(38, 429);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Type de code";
+            // 
+            // txtCodeType
+            // 
+            this.txtCodeType.Location = new System.Drawing.Point(161, 426);
+            this.txtCodeType.Name = "txtCodeType";
+            this.txtCodeType.Size = new System.Drawing.Size(280, 20);
+            this.txtCodeType.TabIndex = 6;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 461);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtCodeType);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtContent);
             this.Controls.Add(this.btLire);
             this.Controls.Add(this.btWebcam);
             this.Controls.Add(this.btImage);
@@ -105,7 +136,10 @@
         private System.Windows.Forms.Button btImage;
         private System.Windows.Forms.Button btWebcam;
         private System.Windows.Forms.Button btLire;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtContent;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtCodeType;
     }
 }
 

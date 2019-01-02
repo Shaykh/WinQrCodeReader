@@ -12,16 +12,24 @@ namespace WinQrCodeReader
 {
     public partial class MainForm : Form
     {
+        IBarcodeReader barcodeReader;
+        TouchlessMgr touchlessMgr;
+
         public MainForm()
         {
             InitializeComponent();
+            Initialization();
         }
 
-        private void ReadBarcode()
+        private void Initialization()
         {
-            IBarcodeReader barcodeReader = new BarcodeReader();
-            TouchlessMgr touchlessMgr = new TouchlessMgr();
+            barcodeReader = new BarcodeReader();
+            touchlessMgr = new TouchlessMgr();
+            
+        }
 
+        private void btImage_Click(object sender, EventArgs e)
+        {
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
                 dialog.Title = "Ouvrir l'image";
@@ -45,11 +53,6 @@ namespace WinQrCodeReader
             }
         }
 
-        private void btImage_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btWebcam_Click(object sender, EventArgs e)
         {
 
@@ -57,7 +60,34 @@ namespace WinQrCodeReader
 
         private void btLire_Click(object sender, EventArgs e)
         {
+            if (pbCode.Image == null)
+            {
+                MessageBox.Show("Veuillez charger une image !");
+                return;
+            }
 
+            txtCodeType.Clear();
+            txtContent.Clear();
+
+            string code = ReadCode((Bitmap)pbCode.Image);
+            if (!string.IsNullOrWhiteSpace(code))
+            {
+                txtContent.Text = code;
+            }
+        }
+
+        
+
+        private string ReadCode(Bitmap bitmap)
+        {
+            string results = string.Empty;
+            var result = barcodeReader.Decode(bitmap);
+            if (result != null)
+            {
+                txtCodeType.Text = result.BarcodeFormat.ToString();
+                results = result.Text;
+            }
+            return results;
         }
     }
 }
