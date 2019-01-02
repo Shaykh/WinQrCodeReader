@@ -1,2 +1,2 @@
 # WinQrCodeReader
-A winform qr code reader with webcam
+A winform qr code reader
