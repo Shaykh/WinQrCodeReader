@@ -47,9 +47,6 @@
     <Reference Include="TouchlessLib">
       <HintPath>..\..\Sources\sources Dotnet\touchless\sourceCode\branches\v.1\trunk\bin\Release\TouchlessLib.dll</HintPath>
     </Reference>
-    <Reference Include="WebCamLib">
-      <HintPath>..\..\Sources\sources Dotnet\touchless\sourceCode\branches\v.1\trunk\bin\Release\WebCamLib.dll</HintPath>
-    </Reference>
     <Reference Include="zxing, Version=0.16.4.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
       <HintPath>packages\ZXing.Net.0.16.4\lib\net45\zxing.dll</HintPath>
     </Reference>
