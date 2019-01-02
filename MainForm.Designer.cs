@@ -52,6 +52,7 @@
             this.btImage.TabIndex = 1;
             this.btImage.Text = "Charger Image";
             this.btImage.UseVisualStyleBackColor = true;
+            this.btImage.Click += new System.EventHandler(this.btImage_Click);
             // 
             // btWebcam
             // 
@@ -61,6 +62,7 @@
             this.btWebcam.TabIndex = 2;
             this.btWebcam.Text = "Démarrer Webcam";
             this.btWebcam.UseVisualStyleBackColor = true;
+            this.btWebcam.Click += new System.EventHandler(this.btWebcam_Click);
             // 
             // btLire
             // 
@@ -70,6 +72,7 @@
             this.btLire.TabIndex = 3;
             this.btLire.Text = "Lire Code";
             this.btLire.UseVisualStyleBackColor = true;
+            this.btLire.Click += new System.EventHandler(this.btLire_Click);
             // 
             // textBox1
             // 

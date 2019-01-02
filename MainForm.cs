@@ -44,5 +44,20 @@ namespace WinQrCodeReader
                 }
             }
         }
+
+        private void btImage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btWebcam_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btLire_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
